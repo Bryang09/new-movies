@@ -51,13 +51,14 @@ const Text = props => {
 
         <div
           className="searchBar"
-          style={ifSearch ? { display: "flex" } : { display: "none" }}
+          style={ifSearch && Full ? { display: "flex" } : { display: "none" }}
         >
           <form onChange={onSearch}>
             <input type="text" placeholder={`${placeholder}`} />
+            <Link to={`/${categorie}/${search}`}>
+              <button type="submit" style={{ display: "none" }} />
+            </Link>
           </form>
-
-          <h6>{search}</h6>
         </div>
       </div>
     </div>

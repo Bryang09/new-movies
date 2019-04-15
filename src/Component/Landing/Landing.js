@@ -20,10 +20,10 @@ class Landing extends Component {
     this.setState({ tvFull: true });
   };
   onMovieLeave = () => {
-    this.setState({ movieFull: false });
+    this.setState({ movieFull: false, movieSearchButton: false });
   };
   onTvLeave = () => {
-    this.setState({ tvFull: false });
+    this.setState({ tvFull: false, tvSearchButton: false });
   };
 
   onMovieSearchClick = () => {
@@ -64,8 +64,8 @@ class Landing extends Component {
           onSearchClick={this.onMovieSearchClick}
           onSearch={this.onMovieSearch}
           title="Search For Movies"
-          categorie="movie"
-          link="movies"
+          categorie="movies"
+          link="movies/discover"
           placeholder="Type Movie Name"
         />
         <Text
@@ -78,8 +78,8 @@ class Landing extends Component {
           onSearch={this.onTvSearch}
           title="Search For TV Shows"
           categorie="tv"
-          link="tv"
-          placeholder="Type Tv Name"
+          link="tv/discover"
+          placeholder="Type TV Show Name"
         />
 
         {/* <div
