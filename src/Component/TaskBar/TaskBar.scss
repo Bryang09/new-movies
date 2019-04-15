@@ -14,17 +14,23 @@
 
     color: #fff;
 
-    .homeLink {
-      background: #222222;
-      // background: #353535;
-    }
-
     .link {
       width: 100%;
       height: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
+      flex-direction: column;
+      transition: 1s ease;
+
+      h4 {
+        margin: 5px 0;
+        font-weight: 400;
+      }
+
+      &:hover {
+        background: lighten(#8c8c8c, 2%);
+      }
 
       .logo {
         height: 80px;
@@ -32,23 +38,37 @@
         background: url(./logo.svg) no-repeat center center / contain;
       }
     }
+
+    .homeLink {
+      background: #222222;
+      // background: #353535;
+
+      &:hover {
+        background: darken(#222222, 5%);
+      }
+    }
+
+    .activeLink {
+      background: #8c8c8c;
+    }
   }
 }
 
-.link {
-  height: 150px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  transition: 1s ease;
+// .link {
+//   height: 150px;
+//   width: 100%;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   cursor: pointer;
+//   transition: 1s ease;
+//   flex-direction: column;
 
-  &:hover {
-    background: lighten(#8c8c8c, 2%);
-  }
-}
+//   &:hover {
+//     background: lighten(#8c8c8c, 2%);
+//   }
+// }
 
-.activeLink {
-  background: #8c8c8c;
-}
+// .activeLink {
+//   background: #8c8c8c;
+// }

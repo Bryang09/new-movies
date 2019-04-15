@@ -4,10 +4,16 @@ import "./index.css";
 import Routes from "./Routes";
 import { HashRouter } from "react-router-dom";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faTrophy, faFire, faFilm } from "@fortawesome/free-solid-svg-icons";
+import {
+  faTrophy,
+  faFire,
+  faFilm,
+  faCalendarAlt,
+  faCheck
+} from "@fortawesome/free-solid-svg-icons";
 import * as serviceWorker from "./serviceWorker";
 
-library.add(faTrophy, faFilm, faFire);
+library.add(faTrophy, faFilm, faFire, faCalendarAlt, faCheck);
 
 ReactDOM.render(
   <HashRouter>

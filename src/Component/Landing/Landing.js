@@ -52,7 +52,6 @@ class Landing extends Component {
       tvSearch
     } = this.state;
 
-    console.log(movieSearch);
     return (
       <div className="Landing">
         <Text
