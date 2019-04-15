@@ -4,9 +4,10 @@ import TaskBar from "../../TaskBar/TaskBar";
 
 class TVDiscover extends Component {
   render() {
+    const type = this.props.match.params.type;
     return (
       <div className="Discover">
-        <TaskBar />
+        <TaskBar type={type} categorie="tv" />
       </div>
     );
   }

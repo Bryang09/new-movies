@@ -10,7 +10,7 @@ class MovieDiscover extends Component {
 
     return (
       <div className="Discover">
-        <TaskBar type={type} />
+        <TaskBar type={type} categorie="movies" />
       </div>
     );
   }
