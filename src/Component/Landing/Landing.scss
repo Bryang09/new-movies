@@ -1,3 +1,6 @@
+$discover: #8f55ea;
+$search: #4a45ff;
+
 .Landing {
   height: 100vh;
   display: flex;
@@ -13,17 +16,19 @@
 
     h2 {
       font-weight: 400;
+      text-align: center;
     }
 
     .buttons {
-      background: rgba(0, 0, 0, 0.8);
       display: flex;
       justify-content: center;
       align-items: center;
       width: 30vw;
+      animation: discover 1s ease;
 
       .option {
-        width: 50%;
+        width: 48%;
+        margin: 0 1%;
         a {
           width: 100%;
           height: 100%;
@@ -35,12 +40,24 @@
       }
 
       .discover {
-        background: red;
+        border: 1px solid $discover;
+        background: $discover;
+
+        &:hover {
+          background: darken($discover, 10%);
+          border: 1px solid darken($discover, 10%);
+        }
       }
 
       .search {
-        background: green;
+        background: $search;
         cursor: pointer;
+        color: #fff;
+
+        &:hover {
+          background: darken($search, 5%);
+          border: 1px solid darken($search, 5%);
+        }
       }
 
       .searchActive {
@@ -84,7 +101,7 @@
     opacity: 0;
   }
   100% {
-    opacity: 0.4;
+    opacity: 1;
   }
 }
 
@@ -94,5 +111,31 @@
   }
   100% {
     transform: translateX(-13vw);
+  }
+}
+
+.searchBar {
+  animation: discover 1s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  form {
+    margin-top: 5vh;
+
+    input {
+      background: #333;
+      border: none;
+      padding: 1vh 2vw;
+      text-align: center;
+      transition: 1s ease;
+
+      &:focus {
+        outline: none;
+        background: #fff;
+        color: #333;
+      }
+    }
   }
 }
