@@ -35,7 +35,7 @@ const Text = props => {
               ifSearch ? "option discover noDiscover" : "option discover"
             }
           >
-            <Link to={`/${link}/allf`}>
+            <Link to={`/${link}/1/popular`}>
               <h5>Discover</h5>
             </Link>
           </div>

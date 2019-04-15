@@ -14,8 +14,25 @@ const Routes = () => {
     <ScrollToTop>
       <Switch>
         <Route exact path="/" component={Landing} />
-        <Route path="/movies/discover/:type?" component={MovieDiscover} />
-        <Route path="/tv/discover/:type?" component={TVDiscover} />
+        <Route
+          path="/movies/discover/:page/:type?"
+          render={props => (
+            <MovieDiscover
+              key={props.match.params.page && props.match.params.type}
+              {...props}
+            />
+          )}
+        />
+
+        <Route
+          path="/tv/discover/:page/:type?"
+          render={props => (
+            <TVDiscover
+              key={props.match.params.page || props.match.params.type}
+              {...props}
+            />
+          )}
+        />
         <Route exact path="/movies/:search" component={MovieSearch} />
         <Route exact path="/tv/:search" component={TVSearch} />
       </Switch>
