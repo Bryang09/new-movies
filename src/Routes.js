@@ -14,7 +14,7 @@ const Routes = () => {
     <ScrollToTop>
       <Switch>
         <Route exact path="/" component={Landing} />
-        <Route exact path="/movies/discover" component={MovieDiscover} />
+        <Route path="/movies/discover" component={MovieDiscover} />
         <Route exact path="/tv/discover" component={TVDiscover} />
         <Route exact path="/movies/:search" component={MovieSearch} />
         <Route exact path="/tv/:search" component={TVSearch} />

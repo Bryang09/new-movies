@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 
+import TaskBar from "../../TaskBar/TaskBar";
+
 class TVDiscover extends Component {
   render() {
     return (
       <div className="Discover">
-        <h1>Discover</h1>
+        <TaskBar />
       </div>
     );
   }
