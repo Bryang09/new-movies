@@ -12,7 +12,7 @@ import Pagination from "../../Pagination/Pagination";
 
 import { withRouter } from "react-router-dom";
 
-class MovieDiscover extends Component {
+class MovieDiscoverUpcoming extends Component {
   state = {
     results: null,
     page: this.props.match.params.page,
@@ -24,7 +24,7 @@ class MovieDiscover extends Component {
     const { page } = this.state;
     axios
       .get(
-        `${BASE_REQUEST}/movie/popular?api_key=${API_KEY}&language=en-US&page=${page}`
+        `${BASE_REQUEST}/movie/upcoming?api_key=${API_KEY}&language=en-US&page=${page}`
       )
       .then(res =>
         this.setState({
@@ -41,7 +41,7 @@ class MovieDiscover extends Component {
     const newPage = page !== parseInt(10) ? parseInt(page) + 1 : 10;
     console.log(newPage);
 
-    this.props.history.push(`/movies/discover/${newPage}/popular`);
+    this.props.history.push(`/movies/discover/${newPage}/upcoming`);
   };
 
   onBackward = e => {
@@ -50,7 +50,7 @@ class MovieDiscover extends Component {
     const newPage = page !== parseInt(1) ? parseInt(page) - 1 : 1;
     console.log(newPage);
 
-    this.props.history.push(`/movies/discover/${newPage}/${type}`);
+    this.props.history.push(`/movies/discover/${newPage}/upcoming`);
   };
 
   render() {
@@ -103,4 +103,4 @@ class MovieDiscover extends Component {
   }
 }
 
-export default withRouter(MovieDiscover);
+export default withRouter(MovieDiscoverUpcoming);

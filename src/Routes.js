@@ -4,7 +4,12 @@ import { Switch, Route } from "react-router-dom";
 
 import ScrollToTop from "./ScrollToTop";
 import Landing from "./Component/Landing/Landing";
+// MOVIE DISCOVER
 import MovieDiscover from "./Component/Movies/Discover/Discover";
+import MovieDiscoverTop from "./Component/Movies/Discover/Top";
+import MovieDiscoverPlaying from "./Component/Movies/Discover/Playing";
+import MovieDiscoverUpcoming from "./Component/Movies/Discover/Upcoming";
+
 import TVDiscover from "./Component/Tv/Discover/Discover";
 import MovieSearch from "./Component/Movies/Search/Search";
 import TVSearch from "./Component/Tv/Search/Search";
@@ -14,11 +19,41 @@ const Routes = () => {
     <ScrollToTop>
       <Switch>
         <Route exact path="/" component={Landing} />
+
+        {/* DISCOVER MOVIES */}
         <Route
-          path="/movies/discover/:page/:type?"
-          render={props => (
-            <MovieDiscover key={props.match.params.page} {...props} />
-          )}
+          path="/movies/discover/:page/popular"
+          render={
+            props => <MovieDiscover key={props.match.params.page} {...props} />
+            // )
+          }
+        />
+        <Route
+          path="/movies/discover/:page/top_rated"
+          render={
+            props => (
+              <MovieDiscoverTop key={props.match.params.page} {...props} />
+            )
+            // )
+          }
+        />
+        <Route
+          path="/movies/discover/:page/now_playing"
+          render={
+            props => (
+              <MovieDiscoverPlaying key={props.match.params.page} {...props} />
+            )
+            // )
+          }
+        />
+        <Route
+          path="/movies/discover/:page/upcoming"
+          render={
+            props => (
+              <MovieDiscoverUpcoming key={props.match.params.page} {...props} />
+            )
+            // )
+          }
         />
 
         <Route

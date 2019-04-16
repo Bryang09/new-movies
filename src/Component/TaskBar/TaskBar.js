@@ -8,7 +8,7 @@ import "./TaskBar.scss";
 
 class TaskBar extends Component {
   render() {
-    const { type, categorie } = this.props;
+    const { type, categorie, popular, top } = this.props;
     return (
       <div className="Task">
         <Link to="/">
@@ -23,6 +23,7 @@ class TaskBar extends Component {
             <h4>All</h4>
           </div>
         </Link> */}
+
         <Link to={`/${categorie}/discover/1/popular`}>
           <div className={type === "popular" ? "link activeLink" : "link"}>
             <FontAwesomeIcon icon="fire" color="#fff" size="2x" />
