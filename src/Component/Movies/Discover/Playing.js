@@ -35,25 +35,23 @@ class MovieDiscoverPlaying extends Component {
   };
 
   onForward = e => {
-    const { type, page } = this.state;
+    const { page } = this.state;
 
     const newPage = page !== parseInt(10) ? parseInt(page) + 1 : 10;
-    console.log(newPage);
 
     this.props.history.push(`/movies/discover/${newPage}/now_playing`);
   };
 
   onBackward = e => {
-    const { type, page } = this.state;
+    const { page } = this.state;
 
     const newPage = page !== parseInt(1) ? parseInt(page) - 1 : 1;
-    console.log(newPage);
 
     this.props.history.push(`/movies/discover/${newPage}/now_playing`);
   };
 
   render() {
-    const { type, results, totalPages, page } = this.state;
+    const { results, totalPages, page } = this.state;
 
     const res =
       results !== null ? (

@@ -35,25 +35,23 @@ class MovieDiscover extends Component {
   };
 
   onForward = e => {
-    const { type, page } = this.state;
+    const { page } = this.state;
 
     const newPage = page !== parseInt(10) ? parseInt(page) + 1 : 10;
-    console.log(newPage);
 
     this.props.history.push(`/movies/discover/${newPage}/popular`);
   };
 
   onBackward = e => {
-    const { type, page } = this.state;
+    const { page } = this.state;
 
     const newPage = page !== parseInt(1) ? parseInt(page) - 1 : 1;
-    console.log(newPage);
 
-    this.props.history.push(`/movies/discover/${newPage}/${type}`);
+    this.props.history.push(`/movies/discover/${newPage}/popular`);
   };
 
   render() {
-    const { type, results, totalPages, page } = this.state;
+    const { results, totalPages, page } = this.state;
 
     const res =
       results !== null ? (
@@ -79,9 +77,7 @@ class MovieDiscover extends Component {
       ) : (
         <h1>Searching</h1>
       );
-    console.log(this.state.type);
 
-    console.log(this.props);
     return (
       <div className="Discover">
         <TaskBar type="popular" categorie="movies" />

@@ -8,9 +8,8 @@ import "./TaskBar.scss";
 
 class TaskBar extends Component {
   render() {
-    const { type, categorie, popular, top } = this.props;
+    const { type, categorie } = this.props;
 
-    console.log(type);
     return (
       <div className="Task">
         <Link to="/">

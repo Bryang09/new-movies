@@ -34,16 +34,15 @@ class TVDiscoverToday extends Component {
   };
 
   onForward = e => {
-    const { type, page } = this.state;
+    const { page } = this.state;
 
     const newPage = page !== parseInt(10) ? parseInt(page) + 1 : 10;
-    console.log(newPage);
 
     this.props.history.push(`/tv/discover/${newPage}/airing_today`);
   };
 
   onBackward = e => {
-    const { type, page } = this.state;
+    const { page } = this.state;
 
     const newPage = page !== parseInt(1) ? parseInt(page) - 1 : 1;
 
@@ -51,7 +50,7 @@ class TVDiscoverToday extends Component {
   };
 
   render() {
-    const { type, results, totalPages, page } = this.state;
+    const { results, totalPages, page } = this.state;
 
     const res =
       results !== null ? (
