@@ -10,11 +10,22 @@ import {
   faFilm,
   faCalendarAlt,
   faCheck,
-  faTv
+  faTv,
+  faArrowLeft,
+  faArrowRight
 } from "@fortawesome/free-solid-svg-icons";
 import * as serviceWorker from "./serviceWorker";
 
-library.add(faTrophy, faFilm, faFire, faCalendarAlt, faCheck, faTv);
+library.add(
+  faTrophy,
+  faFilm,
+  faFire,
+  faCalendarAlt,
+  faCheck,
+  faTv,
+  faArrowLeft,
+  faArrowRight
+);
 
 ReactDOM.render(
   <HashRouter>

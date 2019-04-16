@@ -1,42 +1,101 @@
 import React, { Component } from "react";
 
+import { Link } from "react-router-dom";
+
 import TaskBar from "../../TaskBar/TaskBar";
 
 import axios from "axios";
 import { BASE_REQUEST, API_KEY } from "../../../keys";
 
+import "./Discover.scss";
+import Pagination from "../../Pagination/Pagination";
+
 class MovieDiscover extends Component {
   state = {
     results: null,
     page: this.props.match.params.page,
-    type: this.props.match.params.type
+    type: this.props.match.params.type,
+    totalPages: 1
   };
 
   componentDidMount = () => {
-    // const page = this.props.match.params.page;
-    // const type = this.props.match.params.type;
-
-    // const { page, type } = this.props.match.params;
-
     const { page, type } = this.state;
-
-    // https://api.themoviedb.org/3/movie/popular?api_key=736cb0f2a5061149d7b43012b1dada7e&language=en-US&page=1
     axios
       .get(
         `${BASE_REQUEST}/movie/${type}?api_key=${API_KEY}&language=en-US&page=${page}`
       )
-      .then(res => this.setState({ results: res.data.results }))
+      .then(res =>
+        this.setState({
+          results: res.data.results,
+          totalPages: res.data.total_pages
+        })
+      )
       .catch(err => console.log(err));
   };
 
-  render() {
-    const { results, page, type } = this.state;
+  onForward = e => {
+    const { type, page } = this.state;
 
-    console.log(results, page, type);
+    const newPage = page !== parseInt(10) ? parseInt(page) + 1 : 10;
+    console.log(newPage);
+
+    this.props.history.push(`/movies/discover/${newPage}/${type}`);
+  };
+
+  onBackward = e => {
+    const { type, page } = this.state;
+
+    const newPage = page !== parseInt(1) ? parseInt(page) - 1 : 1;
+    console.log(newPage);
+
+    this.props.history.push(`/movies/discover/${newPage}/${type}`);
+  };
+
+  render() {
+    const { type, results, totalPages, page } = this.state;
+
+    const res =
+      results !== null ? (
+        results.map((res, i) => {
+          return (
+            <Link to={`/${res.id}`} key={i}>
+              <div
+                className="result"
+                style={{
+                  backgroundImage: `url(https://image.tmdb.org/t/p/w500/${
+                    res.poster_path
+                  })`
+                }}
+              >
+                <div className="text">
+                  <h3>{res.title}</h3>
+                  <h4>{res.overview.substr(0, 100)}</h4>
+                </div>
+              </div>
+            </Link>
+          );
+        })
+      ) : (
+        <h1>Searching</h1>
+      );
+
+    console.log(results, totalPages);
 
     return (
       <div className="Discover">
         <TaskBar type={type} categorie="movies" />
+
+        <div className="results">
+          <div className="resultContainer">
+            {results !== null ? res : <h1>Searching ...</h1>}
+            <Pagination
+              results={totalPages}
+              onForward={this.onForward}
+              onBackward={this.onBackward}
+              page={page}
+            />
+          </div>
+        </div>
       </div>
     );
   }

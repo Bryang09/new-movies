@@ -17,20 +17,14 @@ const Routes = () => {
         <Route
           path="/movies/discover/:page/:type?"
           render={props => (
-            <MovieDiscover
-              key={props.match.params.page && props.match.params.type}
-              {...props}
-            />
+            <MovieDiscover key={props.match.params.page} {...props} />
           )}
         />
 
         <Route
           path="/tv/discover/:page/:type?"
           render={props => (
-            <TVDiscover
-              key={props.match.params.page || props.match.params.type}
-              {...props}
-            />
+            <TVDiscover key={props.match.params.page} {...props} />
           )}
         />
         <Route exact path="/movies/:search" component={MovieSearch} />

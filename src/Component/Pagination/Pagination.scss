@@ -1,0 +1,32 @@
+.Pagination {
+  display: flex;
+  width: 10vw;
+  justify-content: center;
+  align-items: center;
+  margin: 5vh auto;
+
+  .paginationOptions {
+    display: flex;
+    width: 55%;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0.1%;
+  }
+}
+
+.backArrow,
+.forwardArrow {
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  svg {
+    cursor: pointer;
+    transition: 0.4s ease;
+
+    &:hover {
+      color: red;
+    }
+  }
+}
