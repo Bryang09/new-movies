@@ -9,8 +9,12 @@ import MovieDiscover from "./Component/Movies/Discover/Discover";
 import MovieDiscoverTop from "./Component/Movies/Discover/Top";
 import MovieDiscoverPlaying from "./Component/Movies/Discover/Playing";
 import MovieDiscoverUpcoming from "./Component/Movies/Discover/Upcoming";
-
+// TV DISCOVER
 import TVDiscover from "./Component/Tv/Discover/Discover";
+import TVDiscoverTop from "./Component/Tv/Discover/Top";
+import TVDiscoverAiring from "./Component/Tv/Discover/Airing";
+import TVDiscoverToday from "./Component/Tv/Discover/Today";
+
 import MovieSearch from "./Component/Movies/Search/Search";
 import TVSearch from "./Component/Tv/Search/Search";
 
@@ -55,11 +59,32 @@ const Routes = () => {
             // )
           }
         />
+        {/* END OF DISCOVER MOVIES */}
+
+        {/* DISCOVER TV */}
 
         <Route
-          path="/tv/discover/:page/:type?"
+          path="/tv/discover/:page/popular"
           render={props => (
             <TVDiscover key={props.match.params.page} {...props} />
+          )}
+        />
+        <Route
+          path="/tv/discover/:page/top_rated"
+          render={props => (
+            <TVDiscoverTop key={props.match.params.page} {...props} />
+          )}
+        />
+        <Route
+          path="/tv/discover/:page/on_the_air"
+          render={props => (
+            <TVDiscoverAiring key={props.match.params.page} {...props} />
+          )}
+        />
+        <Route
+          path="/tv/discover/:page/airing_today"
+          render={props => (
+            <TVDiscoverToday key={props.match.params.page} {...props} />
           )}
         />
         <Route exact path="/movies/:search" component={MovieSearch} />

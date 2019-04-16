@@ -7,12 +7,11 @@ import TaskBar from "../../TaskBar/TaskBar";
 import axios from "axios";
 import { BASE_REQUEST, API_KEY } from "../../../keys";
 
-import "./Discover.scss";
 import Pagination from "../../Pagination/Pagination";
 
 import { withRouter } from "react-router-dom";
 
-class MovieDiscoverPlaying extends Component {
+class TVDiscoverTop extends Component {
   state = {
     results: null,
     page: this.props.match.params.page,
@@ -23,7 +22,7 @@ class MovieDiscoverPlaying extends Component {
     const { page } = this.state;
     axios
       .get(
-        `${BASE_REQUEST}/movie/now_playing?api_key=${API_KEY}&language=en-US&page=${page}`
+        `${BASE_REQUEST}/tv/top_rated?api_key=${API_KEY}&language=en-US&page=${page}`
       )
       .then(res =>
         this.setState({
@@ -40,16 +39,15 @@ class MovieDiscoverPlaying extends Component {
     const newPage = page !== parseInt(10) ? parseInt(page) + 1 : 10;
     console.log(newPage);
 
-    this.props.history.push(`/movies/discover/${newPage}/now_playing`);
+    this.props.history.push(`/tv/discover/${newPage}/top_rated`);
   };
 
   onBackward = e => {
     const { type, page } = this.state;
 
     const newPage = page !== parseInt(1) ? parseInt(page) - 1 : 1;
-    console.log(newPage);
 
-    this.props.history.push(`/movies/discover/${newPage}/now_playing`);
+    this.props.history.push(`/tv/discover/${newPage}/top_rated`);
   };
 
   render() {
@@ -69,7 +67,7 @@ class MovieDiscoverPlaying extends Component {
                 }}
               >
                 <div className="text">
-                  <h3>{res.title}</h3>
+                  <h3>{res.name}</h3>
                   <h4>{res.overview.substr(0, 100)}...</h4>
                 </div>
               </div>
@@ -82,7 +80,7 @@ class MovieDiscoverPlaying extends Component {
 
     return (
       <div className="Discover">
-        <TaskBar type={"now_playing"} categorie="movies" />
+        <TaskBar type={"top_rated"} categorie="tv" />
 
         <div className="results">
           <div className="resultContainer">
@@ -100,4 +98,4 @@ class MovieDiscoverPlaying extends Component {
   }
 }
 
-export default withRouter(MovieDiscoverPlaying);
+export default withRouter(TVDiscoverTop);

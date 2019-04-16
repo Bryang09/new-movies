@@ -9,6 +9,8 @@ import "./TaskBar.scss";
 class TaskBar extends Component {
   render() {
     const { type, categorie, popular, top } = this.props;
+
+    console.log(type);
     return (
       <div className="Task">
         <Link to="/">
@@ -21,6 +23,7 @@ class TaskBar extends Component {
           <div className={type === "all" ? "link activeLink" : "link"}>
             <FontAwesomeIcon icon="check" color="#fff" size="2x" />
             <h4>All</h4>
+            z
           </div>
         </Link> */}
 
@@ -62,10 +65,10 @@ class TaskBar extends Component {
             </div>
           </Link>
         ) : (
-          <Link to={`/${categorie}/discover/1/latest`}>
+          <Link to={`/${categorie}/discover/1/airing_today`}>
             <div className={type === "latest" ? "link activeLink" : "link"}>
               <FontAwesomeIcon icon="calendar-alt" color="#fff" size="2x" />
-              <h4>Latest</h4>
+              <h4>Airing Today</h4>
             </div>
           </Link>
         )}

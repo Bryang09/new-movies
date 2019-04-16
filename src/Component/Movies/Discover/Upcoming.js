@@ -80,12 +80,10 @@ class MovieDiscoverUpcoming extends Component {
       ) : (
         <h1>Searching</h1>
       );
-    console.log(this.state.type);
 
-    console.log(this.props);
     return (
       <div className="Discover">
-        <TaskBar type={type} categorie="movies" />
+        <TaskBar type={"upcoming"} categorie="movies" />
 
         <div className="results">
           <div className="resultContainer">

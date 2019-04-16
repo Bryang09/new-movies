@@ -16,7 +16,6 @@ class MovieDiscover extends Component {
   state = {
     results: null,
     page: this.props.match.params.page,
-    // type: this.props.match.params.type,
     totalPages: 1
   };
 
@@ -85,7 +84,7 @@ class MovieDiscover extends Component {
     console.log(this.props);
     return (
       <div className="Discover">
-        <TaskBar type={type} categorie="movies" />
+        <TaskBar type="popular" categorie="movies" />
 
         <div className="results">
           <div className="resultContainer">
