@@ -9,6 +9,7 @@ import MovieDiscover from "./Component/Movies/Discover/Discover";
 import MovieDiscoverTop from "./Component/Movies/Discover/Top";
 import MovieDiscoverPlaying from "./Component/Movies/Discover/Playing";
 import MovieDiscoverUpcoming from "./Component/Movies/Discover/Upcoming";
+import Single from "./Component/Movies/Discover/Single/Single";
 // TV DISCOVER
 import TVDiscover from "./Component/Tv/Discover/Discover";
 import TVDiscoverTop from "./Component/Tv/Discover/Top";
@@ -56,6 +57,13 @@ const Routes = () => {
             props => (
               <MovieDiscoverUpcoming key={props.match.params.page} {...props} />
             )
+            // )
+          }
+        />
+        <Route
+          path="/movie/:id"
+          render={
+            props => <Single key={props.match.params.id} {...props} />
             // )
           }
         />
