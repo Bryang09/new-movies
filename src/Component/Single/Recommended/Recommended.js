@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 
-import "./Cast.scss";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-class Cast extends Component {
+import { Link } from "react-router-dom";
+
+class Recommended extends Component {
   state = {
     max: 4,
     min: 0
@@ -16,39 +16,42 @@ class Cast extends Component {
   onArrowLeft = () => {
     this.setState({ max: this.state.max - 5, min: this.state.min - 5 });
   };
+
   render() {
-    const { cast } = this.props.cast;
+    console.log(this.props);
+
+    const { results } = this.props.recommended;
     const { min, max } = this.state;
 
-    const mapCast = cast
+    console.log(results);
+    const mapRecommended = results
       .filter((res, i) => i >= min && i < max)
       .map(res => {
         return (
           <div className="castMember" key={res.cast_id}>
-            <div
-              className="img"
-              style={
-                res.profile_path !== null
-                  ? {
-                      backgroundImage: `url(https://image.tmdb.org/t/p/w500/${
-                        res.profile_path
-                      })`
-                    }
-                  : { backgroundColor: "#eee" }
-              }
-            />
-            <h5>{res.name}</h5>
+            <Link to={`/movie/${res.id}`}>
+              <div
+                className="img"
+                style={
+                  res.profile_path !== null
+                    ? {
+                        backgroundImage: `url(https://image.tmdb.org/t/p/w500/${
+                          res.poster_path
+                        })`
+                      }
+                    : { backgroundColor: "#eee" }
+                }
+              />
+            </Link>
+
+            <h5>{res.title}</h5>
           </div>
         );
       });
 
-    console.log(cast.length);
-    console.log(cast);
-    console.log(min, max);
-    console.log(mapCast);
     return (
       <div className="Cast">
-        <h4>The Cast</h4>
+        <h4>Recommended</h4>
 
         <div className="castContainer">
           <div className="leftArrow">
@@ -68,7 +71,7 @@ class Cast extends Component {
             />
           </div>
 
-          {mapCast}
+          {mapRecommended}
           <div className="rightArrow">
             <FontAwesomeIcon
               icon="arrow-right"
@@ -76,7 +79,7 @@ class Cast extends Component {
               color="#3c3c3c"
               onClick={this.onArrowRight}
               style={
-                max < cast.length - 1
+                max < results.length - 1
                   ? { color: "inherit" }
                   : {
                       color: "#e0e0e0",
@@ -91,8 +94,4 @@ class Cast extends Component {
   }
 }
 
-export default Cast;
-
-// HAVE A COUNTER FOR INDEX
-// FILTER BY INDEX
-// WHEN ARROW CLICKED, BRING NEXT INDEXES
+export default Recommended;
