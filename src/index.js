@@ -12,7 +12,8 @@ import {
   faCheck,
   faTv,
   faArrowLeft,
-  faArrowRight
+  faArrowRight,
+  faStar
 } from "@fortawesome/free-solid-svg-icons";
 import * as serviceWorker from "./serviceWorker";
 
@@ -24,7 +25,8 @@ library.add(
   faCheck,
   faTv,
   faArrowLeft,
-  faArrowRight
+  faArrowRight,
+  faStar
 );
 
 ReactDOM.render(

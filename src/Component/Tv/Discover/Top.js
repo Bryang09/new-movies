@@ -56,7 +56,7 @@ class TVDiscoverTop extends Component {
       results !== null ? (
         results.map((res, i) => {
           return (
-            <Link to={`/${res.id}`} key={i}>
+            <Link to={`/tv/${res.id}`} key={i}>
               <div
                 className="result"
                 style={{
