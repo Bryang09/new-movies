@@ -8,6 +8,6 @@
   .SingleContainer {
     width: calc(100% - 200px);
     display: flex;
-    justify-content: flex-end;
+    flex-direction: column;
   }
 }

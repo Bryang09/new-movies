@@ -7,6 +7,7 @@ import Header from "./Header/Header";
 
 import "./Single.scss";
 import TaskBar from "../TaskBar/TaskBar";
+import Cast from "./Cast/Cast";
 
 class Single extends Component {
   state = {
@@ -18,13 +19,10 @@ class Single extends Component {
     const { id, type } = this.props.match.params;
     axios
       .get(`${BASE_REQUEST}/${type}/${id}?api_key=${API_KEY}`)
-      // .then(res => console.log(res))
       .then(res => this.setState({ result: res.data }))
       .catch(err => console.log(err));
     axios
-      // `${BASE_REQUEST}/movie/popular?api_key=${API_KEY}&language=en-US&page=${page}`
       .get(`${BASE_REQUEST}/${type}/${id}/credits?api_key=${API_KEY}`)
-      // .then(res => console.log(res))
       .then(res => this.setState({ cast: res.data }))
       .catch(err => console.log(err));
   };
@@ -32,19 +30,18 @@ class Single extends Component {
     const { type } = this.props.match.params;
     const { result, cast } = this.state;
 
-    console.log(type);
-    console.log(cast);
-
-    console.log(this.state.result);
     return (
       <div className="Single">
-        {type === "movie" && result !== null ? (
+        {type === "movie" && result !== null && cast !== null ? (
           <div className="SingleContainer">
             <TaskBar categorie={type === "movie" ? "movies" : "tv"} />
             <Header result={result} />
+            <Cast cast={cast} />
           </div>
         ) : (
-          <h1>Not Here Yet</h1>
+          <div className="SingleContainer">
+            <TaskBar categorie={type === "movie" ? "movies" : "tv"} />
+          </div>
         )}
       </div>
     );
