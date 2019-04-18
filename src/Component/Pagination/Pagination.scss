@@ -1,9 +1,16 @@
 .Pagination {
   display: flex;
-  width: 10vw;
+  width: 100%;
   justify-content: center;
   align-items: center;
   margin: 5vh auto;
+
+  .paginationContainer {
+    width: 10vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
   .paginationOptions {
     display: flex;

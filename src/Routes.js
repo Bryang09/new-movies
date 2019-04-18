@@ -72,24 +72,28 @@ const Routes = () => {
         {/* DISCOVER TV */}
 
         <Route
+          exact
           path="/tv/discover/:page/popular"
           render={props => (
             <TVDiscover key={props.match.params.page} {...props} />
           )}
         />
         <Route
+          exact
           path="/tv/discover/:page/top_rated"
           render={props => (
             <TVDiscoverTop key={props.match.params.page} {...props} />
           )}
         />
         <Route
+          exact
           path="/tv/discover/:page/on_the_air"
           render={props => (
             <TVDiscoverAiring key={props.match.params.page} {...props} />
           )}
         />
         <Route
+          exact
           path="/tv/discover/:page/airing_today"
           render={props => (
             <TVDiscoverToday key={props.match.params.page} {...props} />
@@ -115,9 +119,9 @@ const Routes = () => {
         />
         <Route
           exact
-          path="/search/:type/:query"
+          path="/search/:type/:page/:query"
           render={
-            props => <Search key={props.match.params.query} {...props} />
+            props => <Search key={props.match.params.page} {...props} />
             // )
           }
         />

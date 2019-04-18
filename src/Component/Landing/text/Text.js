@@ -60,8 +60,8 @@ const Text = props => {
             <Link
               to={
                 categorie === "movies"
-                  ? `/search/movie/${search}`
-                  : `/search/${categorie}/${search}`
+                  ? `/search/movie/1/${search}`
+                  : `/search/${categorie}/1/${search}`
               }
             >
               <button type="submit" style={{ display: "none" }} />
