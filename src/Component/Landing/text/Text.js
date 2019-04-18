@@ -18,6 +18,7 @@ const Text = props => {
   } = props;
 
   console.log(props.search.length > 0);
+  console.log(props.search.length);
 
   return (
     <div
@@ -72,10 +73,11 @@ const Text = props => {
                   : `/search/${categorie}/1/${search}`
               }
             >
-              <button
-                type={search.length > 0 ? "submit" : "text"}
-                style={{ display: "none" }}
-              />
+              {search.length > 0 ? (
+                <button type={"submit"} style={{ display: "none" }} />
+              ) : (
+                <button type={"submit"} disabled style={{ display: "none" }} />
+              )}
             </Link>
           </form>
         </div>
