@@ -30,6 +30,11 @@
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center 0;
+      transition: 1s ease;
+
+      &:hover {
+        transform: scale(1.05);
+      }
 
       .text {
         display: flex;

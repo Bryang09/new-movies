@@ -10,11 +10,15 @@ const Result = props => {
       <Link to={`/${type}/${res.id}`} key={i}>
         <div
           className="result"
-          style={{
-            backgroundImage: `url(https://image.tmdb.org/t/p/w500/${
-              res.poster_path
-            })`
-          }}
+          style={
+            res.poster_path !== null
+              ? {
+                  backgroundImage: `url(https://image.tmdb.org/t/p/w500/${
+                    res.poster_path
+                  })`
+                }
+              : { backgroundColor: "rgba(0,0,0,0.8)" }
+          }
         >
           <div className="text">
             <h3>{res.title}</h3>

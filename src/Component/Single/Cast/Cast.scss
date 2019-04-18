@@ -47,6 +47,11 @@
       background-size: cover;
       background-repeat: no-repeat;
       box-shadow: 1px 1px 30px #cecece;
+      transition: 1s ease;
+
+      &:hover {
+        transform: scale(1.1);
+      }
 
       &:nth-child(1) {
         animation: img 1s ease;
