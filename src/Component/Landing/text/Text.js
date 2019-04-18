@@ -17,7 +17,7 @@ const Text = props => {
     placeholder
   } = props;
 
-  console.log(props);
+  console.log(props.search.length > 0);
 
   return (
     <div
@@ -56,7 +56,15 @@ const Text = props => {
           style={ifSearch && Full ? { display: "flex" } : { display: "none" }}
         >
           <form onChange={onSearch}>
-            <input type="text" placeholder={`${placeholder}`} />
+            <input
+              type="text"
+              placeholder={`${placeholder}`}
+              style={
+                search.length > 0
+                  ? { border: "1px solid #52ff5d" }
+                  : { border: "1px solid #51b1ff" }
+              }
+            />
             <Link
               to={
                 categorie === "movies"
@@ -64,7 +72,10 @@ const Text = props => {
                   : `/search/${categorie}/1/${search}`
               }
             >
-              <button type="submit" style={{ display: "none" }} />
+              <button
+                type={search.length > 0 ? "submit" : "text"}
+                style={{ display: "none" }}
+              />
             </Link>
           </form>
         </div>
