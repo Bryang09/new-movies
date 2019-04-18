@@ -37,7 +37,8 @@ class Single extends Component {
     const { type } = this.props.match.params;
     const { result, cast, recommended } = this.state;
 
-    console.log(recommended);
+    console.log(result);
+    console.log(cast);
     return (
       <div className="Single">
         {type === "movie" &&
@@ -48,13 +49,19 @@ class Single extends Component {
             <TaskBar categorie={type === "movie" ? "movies" : "tv"} />
             <Header result={result} />
             <Cast cast={cast} />
-            <Recommended recommended={recommended} />
+            <Recommended recommended={recommended} type="movie" />
           </div>
-        ) : (
+        ) : type === "tv" &&
+          result !== null &&
+          cast !== null &&
+          recommended !== null ? (
           <div className="SingleContainer">
             <TaskBar categorie={type === "movie" ? "movies" : "tv"} />
+            <Header result={result} type="tv" />
+            <Cast cast={cast} />
+            <Recommended recommended={recommended} type="tv" />
           </div>
-        )}
+        ) : null}
       </div>
     );
   }

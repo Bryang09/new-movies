@@ -15,10 +15,9 @@ import TVDiscoverTop from "./Component/Tv/Discover/Top";
 import TVDiscoverAiring from "./Component/Tv/Discover/Airing";
 import TVDiscoverToday from "./Component/Tv/Discover/Today";
 
-import MovieSearch from "./Component/Movies/Search/Search";
-import TVSearch from "./Component/Tv/Search/Search";
-
 import Single from "./Component/Single/Single";
+
+import Search from "./Component/Search/Search";
 
 const Routes = () => {
   return (
@@ -107,14 +106,21 @@ const Routes = () => {
 
         {/* SINGLE MOVIE OR TV SHOW */}
         <Route
+          exact
           path="/:type/:id"
           render={
             props => <Single key={props.match.params.id} {...props} />
             // )
           }
         />
-        <Route exact path="/movies/:search" component={MovieSearch} />
-        <Route exact path="/tv/:search" component={TVSearch} />
+        <Route
+          exact
+          path="/search/:type/:query"
+          render={
+            props => <Search key={props.match.params.query} {...props} />
+            // )
+          }
+        />
       </Switch>
     </ScrollToTop>
   );

@@ -22,9 +22,9 @@ class Cast extends Component {
 
     const mapCast = cast
       .filter((res, i) => i >= min && i < max)
-      .map(res => {
+      .map((res, i) => {
         return (
-          <div className="castMember" key={res.cast_id}>
+          <div className="castMember" key={i}>
             <div
               className="img"
               style={
@@ -38,6 +38,7 @@ class Cast extends Component {
               }
             />
             <h5>{res.name}</h5>
+            <h6>"{`${res.character}`}"</h6>
           </div>
         );
       });

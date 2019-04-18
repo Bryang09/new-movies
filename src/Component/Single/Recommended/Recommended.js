@@ -21,6 +21,7 @@ class Recommended extends Component {
     console.log(this.props);
 
     const { results } = this.props.recommended;
+    const { type } = this.props;
     const { min, max } = this.state;
 
     console.log(results);
@@ -28,8 +29,8 @@ class Recommended extends Component {
       .filter((res, i) => i >= min && i < max)
       .map(res => {
         return (
-          <div className="castMember" key={res.cast_id}>
-            <Link to={`/movie/${res.id}`}>
+          <div className="castMember" key={res.id}>
+            <Link to={`/${type}/${res.id}`}>
               <div
                 className="img"
                 style={
@@ -44,7 +45,7 @@ class Recommended extends Component {
               />
             </Link>
 
-            <h5>{res.title}</h5>
+            <h5>{type === "tv" ? res.name : res.title}</h5>
           </div>
         );
       });

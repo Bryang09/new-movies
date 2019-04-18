@@ -17,6 +17,8 @@ const Text = props => {
     placeholder
   } = props;
 
+  console.log(props);
+
   return (
     <div
       className={Full ? `option ${categorie} full` : `option ${categorie}`}
@@ -55,7 +57,13 @@ const Text = props => {
         >
           <form onChange={onSearch}>
             <input type="text" placeholder={`${placeholder}`} />
-            <Link to={`/${categorie}/${search}`}>
+            <Link
+              to={
+                categorie === "movies"
+                  ? `/search/movie/${search}`
+                  : `/search/${categorie}/${search}`
+              }
+            >
               <button type="submit" style={{ display: "none" }} />
             </Link>
           </form>

@@ -34,6 +34,7 @@
       h1 {
         font-size: 45px;
         margin-bottom: 0;
+        color: #2c3f69;
       }
       h5 {
         margin: 0.5vh 0 1vh;
@@ -65,7 +66,7 @@
       width: 350px;
       height: 350px;
       transform: rotate(-45deg);
-      background: red;
+      background: linear-gradient(#ff5252, #fff);
       border-radius: 35px;
 
       .img {

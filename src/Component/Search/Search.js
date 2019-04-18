@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 
-class TVSearch extends Component {
+class Search extends Component {
   render() {
+    console.log(this.props);
     return (
       <div className="Search">
         <h1>Search</h1>
@@ -10,4 +11,4 @@ class TVSearch extends Component {
   }
 }
 
-export default TVSearch;
+export default Search;
