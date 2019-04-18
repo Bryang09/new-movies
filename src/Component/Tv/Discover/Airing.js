@@ -10,6 +10,7 @@ import { BASE_REQUEST, API_KEY } from "../../../keys";
 import Pagination from "../../Pagination/Pagination";
 
 import { withRouter } from "react-router-dom";
+import Result from "../../Results/Result";
 
 class TVDiscoverAiring extends Component {
   state = {
@@ -52,38 +53,17 @@ class TVDiscoverAiring extends Component {
   render() {
     const { results, totalPages, page } = this.state;
 
-    const res =
-      results !== null ? (
-        results.map((res, i) => {
-          return (
-            <Link to={`/tv/${res.id}`} key={i}>
-              <div
-                className="result"
-                style={{
-                  backgroundImage: `url(https://image.tmdb.org/t/p/w500/${
-                    res.poster_path
-                  })`
-                }}
-              >
-                <div className="text">
-                  <h3>{res.name}</h3>
-                  <h4>{res.overview.substr(0, 100)}...</h4>
-                </div>
-              </div>
-            </Link>
-          );
-        })
-      ) : (
-        <h1>Searching</h1>
-      );
-
     return (
       <div className="Discover">
         <TaskBar type={"on_the_air"} categorie="tv" />
 
         <div className="results">
           <div className="resultContainer">
-            {results !== null ? res : <h1>Searching ...</h1>}
+            {results !== null ? (
+              <Result results={results} type="tv" />
+            ) : (
+              <h1>Searching ...</h1>
+            )}
             <Pagination
               results={totalPages}
               onForward={this.onForward}

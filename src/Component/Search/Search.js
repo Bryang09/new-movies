@@ -11,6 +11,7 @@ import { withRouter } from "react-router-dom";
 import Pagination from "../Pagination/Pagination";
 import TaskBar from "../TaskBar/TaskBar";
 import { BASE_REQUEST, API_KEY } from "../../keys";
+import Result from "../Results/Result";
 
 class Search extends Component {
   state = {
@@ -54,35 +55,6 @@ class Search extends Component {
   render() {
     const { results, totalPages, page } = this.state;
 
-    const res =
-      results !== null ? (
-        results.map((res, i) => {
-          return (
-            <Link to={`/movie/${res.id}`} key={i}>
-              <div
-                className="result"
-                style={
-                  res.poster_path !== null
-                    ? {
-                        backgroundImage: `url(https://image.tmdb.org/t/p/w500/${
-                          res.poster_path
-                        })`
-                      }
-                    : { backgroundColor: "rgba(0,0,0,0.6)" }
-                }
-              >
-                <div className="text">
-                  <h3>{res.title}</h3>
-                  <h4>{res.overview.substr(0, 100)}...</h4>
-                </div>
-              </div>
-            </Link>
-          );
-        })
-      ) : (
-        <h1>Searching</h1>
-      );
-
     const { type, query } = this.props.match.params;
 
     console.log(this.state.results);
@@ -95,7 +67,11 @@ class Search extends Component {
 
         <div className="results">
           <div className="resultContainer">
-            {results !== null ? res : <h1>Searching ...</h1>}
+            {results !== null ? (
+              <Result results={results} type={type} />
+            ) : (
+              <h1>Searching ...</h1>
+            )}
             <br />
             <Pagination
               results={totalPages}

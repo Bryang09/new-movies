@@ -11,6 +11,7 @@ import "./Discover.scss";
 import Pagination from "../../Pagination/Pagination";
 
 import { withRouter } from "react-router-dom";
+import Result from "../../Results/Result";
 
 class MovieDiscoverTop extends Component {
   state = {
@@ -53,37 +54,17 @@ class MovieDiscoverTop extends Component {
   render() {
     const { results, totalPages, page } = this.state;
 
-    const res =
-      results !== null ? (
-        results.map((res, i) => {
-          return (
-            <Link to={`/movie/${res.id}`} key={i}>
-              <div
-                className="result"
-                style={{
-                  backgroundImage: `url(https://image.tmdb.org/t/p/w500/${
-                    res.poster_path
-                  })`
-                }}
-              >
-                <div className="text">
-                  <h3>{res.title}</h3>
-                  <h4>{res.overview.substr(0, 100)}...</h4>
-                </div>
-              </div>
-            </Link>
-          );
-        })
-      ) : (
-        <h1>Searching</h1>
-      );
     return (
       <div className="Discover">
         <TaskBar type={"top_rated"} categorie="movies" />
 
         <div className="results">
           <div className="resultContainer">
-            {results !== null ? res : <h1>Searching ...</h1>}
+            {results !== null ? (
+              <Result results={results} type="movie" />
+            ) : (
+              <h1>Searching ...</h1>
+            )}
             <Pagination
               results={totalPages}
               onForward={this.onForward}
