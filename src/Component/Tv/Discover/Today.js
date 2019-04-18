@@ -11,6 +11,7 @@ import Pagination from "../../Pagination/Pagination";
 
 import { withRouter } from "react-router-dom";
 import Result from "../../Results/Result";
+import Display from "../../Display/Display";
 
 class TVDiscoverToday extends Component {
   state = {
@@ -54,25 +55,22 @@ class TVDiscoverToday extends Component {
     const { results, totalPages, page } = this.state;
 
     return (
-      <div className="Discover">
-        <TaskBar type={"airing_today"} categorie="tv" />
-
-        <div className="results">
-          <div className="resultContainer">
-            {results !== null ? (
-              <Result results={results} type="tv" />
-            ) : (
-              <h1>Searching ...</h1>
-            )}
-            <Pagination
-              results={totalPages}
-              onForward={this.onForward}
-              onBackward={this.onBackward}
-              page={page}
-            />
-          </div>
-        </div>
-      </div>
+      <>
+        {results !== null ? (
+          <Display
+            type="airing_today"
+            categorie="tv"
+            results={results}
+            resultType="tv"
+            totalPages={totalPages}
+            onForward={this.onForward}
+            onBackward={this.onBackward}
+            page={page}
+          />
+        ) : (
+          <h1>Searching...</h1>
+        )}
+      </>
     );
   }
 }

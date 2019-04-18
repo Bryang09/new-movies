@@ -12,6 +12,7 @@ import Pagination from "../../Pagination/Pagination";
 
 import { withRouter } from "react-router-dom";
 import Result from "../../Results/Result";
+import Display from "../../Display/Display";
 
 class MovieDiscoverTop extends Component {
   state = {
@@ -55,25 +56,22 @@ class MovieDiscoverTop extends Component {
     const { results, totalPages, page } = this.state;
 
     return (
-      <div className="Discover">
-        <TaskBar type={"top_rated"} categorie="movies" />
-
-        <div className="results">
-          <div className="resultContainer">
-            {results !== null ? (
-              <Result results={results} type="movie" />
-            ) : (
-              <h1>Searching ...</h1>
-            )}
-            <Pagination
-              results={totalPages}
-              onForward={this.onForward}
-              onBackward={this.onBackward}
-              page={page}
-            />
-          </div>
-        </div>
-      </div>
+      <>
+        {results !== null ? (
+          <Display
+            type="top_rated"
+            categorie="movies"
+            results={results}
+            resultType="movie"
+            totalPages={totalPages}
+            onForward={this.onForward}
+            onBackward={this.onBackward}
+            page={page}
+          />
+        ) : (
+          <h1>Searching...</h1>
+        )}
+      </>
     );
   }
 }
