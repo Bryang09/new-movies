@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import "./Cast.scss";
 
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class Cast extends Component {
@@ -25,18 +26,21 @@ class Cast extends Component {
       .map((res, i) => {
         return (
           <div className="castMember" key={i}>
-            <div
-              className="img"
-              style={
-                res.profile_path !== null
-                  ? {
-                      backgroundImage: `url(https://image.tmdb.org/t/p/w500/${
-                        res.profile_path
-                      })`
-                    }
-                  : { backgroundColor: "#eee" }
-              }
-            />
+            <Link to={`/actor/1/${res.id}`}>
+              <div
+                className="img"
+                style={
+                  res.profile_path !== null
+                    ? {
+                        backgroundImage: `url(https://image.tmdb.org/t/p/w500/${
+                          res.profile_path
+                        })`
+                      }
+                    : { backgroundColor: "#eee" }
+                }
+              />
+            </Link>
+
             <h5>{res.name}</h5>
             <h6>"{`${res.character}`}"</h6>
           </div>

@@ -1,18 +1,13 @@
 import React, { Component } from "react";
 
-import { Link } from "react-router-dom";
-
-import TaskBar from "../../TaskBar/TaskBar";
-
-import axios from "axios";
+import { withRouter } from "react-router-dom";
 import { BASE_REQUEST, API_KEY } from "../../../keys";
 
-import "./Discover.scss";
-import Pagination from "../../Pagination/Pagination";
+import axios from "axios";
 
-import { withRouter } from "react-router-dom";
-import Result from "../../Results/Result";
 import Display from "../../Display/Display";
+
+import "./Discover.scss";
 
 class MovieDiscover extends Component {
   state = {
@@ -34,6 +29,11 @@ class MovieDiscover extends Component {
         })
       )
       .catch(err => console.log(err));
+
+    axios
+      .get(`${BASE_REQUEST}/genre/movie/list?api_key=${API_KEY}`)
+      .then(res => this.setState({ genres: res.data }))
+      .catch(err => console.log(err));
   };
 
   onForward = e => {
@@ -52,22 +52,30 @@ class MovieDiscover extends Component {
     this.props.history.push(`/movies/discover/${newPage}/popular`);
   };
 
+  onSelect = e => {
+    this.setState({ filter: e.target.value });
+  };
+
   render() {
-    const { results, totalPages, page } = this.state;
+    const { results, totalPages, page, genres, filter } = this.state;
 
     return (
       <>
         {results !== null ? (
-          <Display
-            type="popular"
-            categorie="movies"
-            results={results}
-            resultType="movie"
-            totalPages={totalPages}
-            onForward={this.onForward}
-            onBackward={this.onBackward}
-            page={page}
-          />
+          <>
+            <Display
+              type="popular"
+              categorie="movies"
+              results={results}
+              resultType="movie"
+              totalPages={totalPages}
+              onForward={this.onForward}
+              onBackward={this.onBackward}
+              page={page}
+              genres={genres}
+              select={this.onSelect}
+            />
+          </>
         ) : (
           <h1>Searching...</h1>
         )}

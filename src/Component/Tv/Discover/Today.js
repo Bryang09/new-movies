@@ -1,16 +1,10 @@
 import React, { Component } from "react";
 
-import { Link } from "react-router-dom";
-
-import TaskBar from "../../TaskBar/TaskBar";
-
-import axios from "axios";
+import { withRouter } from "react-router-dom";
 import { BASE_REQUEST, API_KEY } from "../../../keys";
 
-import Pagination from "../../Pagination/Pagination";
+import axios from "axios";
 
-import { withRouter } from "react-router-dom";
-import Result from "../../Results/Result";
 import Display from "../../Display/Display";
 
 class TVDiscoverToday extends Component {

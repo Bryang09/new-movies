@@ -18,6 +18,7 @@ import TVDiscoverToday from "./Component/Tv/Discover/Today";
 import Single from "./Component/Single/Single";
 
 import Search from "./Component/Search/Search";
+import Actor from "./Component/Actor/Actor";
 
 const Routes = () => {
   return (
@@ -122,6 +123,14 @@ const Routes = () => {
           path="/search/:type/:page/:query"
           render={
             props => <Search key={props.match.params.page} {...props} />
+            // )
+          }
+        />
+        <Route
+          exact
+          path="/actor/:page/:id"
+          render={
+            props => <Actor key={props.match.params.page} {...props} />
             // )
           }
         />

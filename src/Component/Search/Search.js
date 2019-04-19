@@ -1,17 +1,11 @@
 import React, { Component } from "react";
 
-import { Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
+import { BASE_REQUEST, API_KEY } from "../../keys";
 
 import axios from "axios";
-// import { BASE_REQUEST, API_KEY } from "../../../keys";
 
-// import "./Discover.scss";
-
-import { withRouter } from "react-router-dom";
-import Pagination from "../Pagination/Pagination";
-import TaskBar from "../TaskBar/TaskBar";
-import { BASE_REQUEST, API_KEY } from "../../keys";
-import Result from "../Results/Result";
+import Display from "../Display/Display";
 
 class Search extends Component {
   state = {
@@ -55,33 +49,26 @@ class Search extends Component {
   render() {
     const { results, totalPages, page } = this.state;
 
-    const { type, query } = this.props.match.params;
+    const { type } = this.props.match.params;
 
     console.log(this.state.results);
     return (
-      <div className="Discover">
-        <TaskBar
-          type="popular"
-          categorie={type === "movie" ? "movies" : "tv"}
-        />
-
-        <div className="results">
-          <div className="resultContainer">
-            {results !== null ? (
-              <Result results={results} type={type} />
-            ) : (
-              <h1>Searching ...</h1>
-            )}
-            <br />
-            <Pagination
-              results={totalPages}
-              onForward={this.onForward}
-              onBackward={this.onBackward}
-              page={page}
-            />
-          </div>
-        </div>
-      </div>
+      <>
+        {results !== null ? (
+          <Display
+            type="popular"
+            categorie={type === "movie" ? "movies" : "tv"}
+            results={results}
+            resultType={type}
+            totalPages={totalPages}
+            onForward={this.onForward}
+            onBackward={this.onBackward}
+            page={page}
+          />
+        ) : (
+          <h1>Searching...</h1>
+        )}
+      </>
     );
   }
 }

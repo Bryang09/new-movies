@@ -21,7 +21,7 @@ const Result = props => {
           }
         >
           <div className="text">
-            <h3>{res.title}</h3>
+            <h3>{type === "tv" ? res.name : res.title}</h3>
             <h4>{res.overview.substr(0, 100)}...</h4>
           </div>
         </div>
@@ -29,6 +29,7 @@ const Result = props => {
     );
   });
 
+  console.log(type);
   console.log(results);
   return result;
 };

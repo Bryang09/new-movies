@@ -66,3 +66,15 @@
     }
   }
 }
+
+.filterAndResult {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  flex-direction: column;
+  background: #e8f2fd;
+
+  .filter {
+    align-self: center;
+  }
+}
