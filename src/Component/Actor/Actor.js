@@ -14,7 +14,8 @@ class Actor extends Component {
     details: null,
     movieCredits: null,
     tvCredits: null,
-    credits: null
+    credits: null,
+    categorie: null
   };
 
   componentDidMount = () => {
@@ -39,8 +40,6 @@ class Actor extends Component {
       // .then(res => console.log(res.data))
       .then(res => this.setState({ details: res.data }))
       .catch(err => console.log(err));
-
-    this.setState({ credits: this.state.movieCredits });
   };
 
   goBack = () => {
@@ -48,11 +47,11 @@ class Actor extends Component {
   };
 
   onMovies = () => {
-    this.setState({ credits: this.state.movieCredits });
+    this.setState({ credits: this.state.movieCredits, categorie: "movie" });
   };
 
   onTv = () => {
-    this.setState({ credits: this.state.tvCredits });
+    this.setState({ credits: this.state.tvCredits, categorie: "tv" });
   };
 
   onWhich = () => {
@@ -60,19 +59,13 @@ class Actor extends Component {
 
     this.setState(
       movieCredits < tvCredits
-        ? { credits: tvCredits }
-        : { credits: movieCredits }
+        ? { credits: tvCredits, categorie: "tv" }
+        : { credits: movieCredits, categorie: "movie" }
     );
   };
 
-  // onSort = () => {
-  //   const { movieCredits } = this.state;
-
-  //   movieCredits.
-  // }
-
   render() {
-    const { details, movieCredits, tvCredits, credits } = this.state;
+    const { details, movieCredits, tvCredits, credits, categorie } = this.state;
 
     const movies = movieCredits !== null ? movieCredits.length : 2;
     const tv = tvCredits !== null ? tvCredits.length : 2;
@@ -91,9 +84,11 @@ class Actor extends Component {
             <Header details={details} back={this.goBack} />
             <Result
               results={credits}
-              type={movieCredits > tvCredits ? "movie" : "tv"}
               movieNumber={movieCredits.length}
               tvNumber={tvCredits.length}
+              tv={this.onTv}
+              movies={this.onMovies}
+              categorie={categorie}
             />
             {/* <Pagination
             results={totalPages}

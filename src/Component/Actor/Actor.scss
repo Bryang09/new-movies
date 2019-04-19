@@ -9,9 +9,23 @@
     align-items: center;
 
     h5 {
-      border: 1px solid #333;
+      border: 1px solid #2c3f69;
       margin: 5vh 1vw 2vh;
       padding: 1vh 2vw;
+      color: #2c3f69;
+      transition: 1s ease;
+      font-weight: 400;
+      cursor: pointer;
+
+      &:hover {
+        background: #2c3f69;
+        color: #fff;
+      }
+
+      &.activeCategorie {
+        background: #2c3f69;
+        color: #fff;
+      }
     }
   }
 }

@@ -57,7 +57,7 @@ class MovieDiscover extends Component {
   };
 
   render() {
-    const { results, totalPages, page, genres, filter } = this.state;
+    const { results, totalPages, page, genres } = this.state;
 
     return (
       <>

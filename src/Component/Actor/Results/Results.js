@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Result = props => {
-  const { results, type, movieNumber, tvNumber } = props;
+  const { results, type, movieNumber, tvNumber, tv, movies, categorie } = props;
 
   console.log(props);
 
@@ -11,7 +11,7 @@ const Result = props => {
     .sort((a, b) => b.popularity - a.popularity)
     .map((res, i) => {
       return (
-        <Link to={`/${type}/${res.id}`} key={i}>
+        <Link to={`/credit/actor/${res.credit_id}`} key={i}>
           <div
             className="result"
             style={
@@ -25,7 +25,7 @@ const Result = props => {
             }
           >
             <div className="text">
-              <h3>{type === "tv" ? res.name : res.title}</h3>
+              <h3>{categorie === "tv" ? res.name : res.title}</h3>
               <h4>{res.overview.substr(0, 100)}...</h4>
             </div>
           </div>
@@ -46,8 +46,18 @@ const Result = props => {
             : { flexDirection: "row-reverse" }
         }
       >
-        <h5>Movies({movieNumber})</h5>
-        <h5>TV({tvNumber})</h5>
+        <h5
+          className={categorie === "movie" ? "activeCategorie" : null}
+          onClick={movies}
+        >
+          Movies ({movieNumber})
+        </h5>
+        <h5
+          className={categorie === "tv" ? "activeCategorie" : null}
+          onClick={tv}
+        >
+          TV ({tvNumber})
+        </h5>
       </div>
       <div className="resultContainer">{result}</div>
     </div>

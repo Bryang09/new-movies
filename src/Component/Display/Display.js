@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 import Pagination from "../Pagination/Pagination";
 import Result from "../Results/Result";
@@ -14,8 +14,8 @@ const Display = props => {
     onForward,
     onBackward,
     page
-  } = this.props;
-  console.log(this.props.genres);
+  } = props;
+  console.log(props.genres);
 
   return (
     <div className="Discover">

@@ -3,7 +3,7 @@ import React from "react";
 const Header = props => {
   const { details, back } = props;
   return (
-    <div className="firstDivider">
+    <div className="firstDivider" style={{ height: "70vh" }}>
       <div className="text">
         <div className="titleAndInfo">
           <div className="title">
