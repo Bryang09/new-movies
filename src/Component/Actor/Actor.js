@@ -7,10 +7,13 @@ import { withRouter } from "react-router-dom";
 import Header from "./Header/Header";
 
 import "./Actor.scss";
+import Result from "./Results/Results";
 
 class Actor extends Component {
   state = {
     details: null,
+    movieCredits: null,
+    tvCredits: null,
     credits: null
   };
 
@@ -18,9 +21,16 @@ class Actor extends Component {
     const { id, page } = this.props.match.params;
     axios
       .get(
-        `${BASE_REQUEST}/person/${id}/combined_credits?api_key=${API_KEY}&language=en-US&page=${page}`
+        `${BASE_REQUEST}/person/${id}/movie_credits?api_key=${API_KEY}&language=en-US&page=${page}`
       )
-      .then(res => this.setState({ credits: res.data.cast }))
+      .then(res => this.setState({ movieCredits: res.data.cast }, this.onWhich))
+      // .then(res => console.log(res))
+      .catch(err => console.log(err));
+    axios
+      .get(
+        `${BASE_REQUEST}/person/${id}/tv_credits?api_key=${API_KEY}&language=en-US&page=${page}`
+      )
+      .then(res => this.setState({ tvCredits: res.data.cast }, this.onWhich))
       .catch(err => console.log(err));
     axios
       .get(
@@ -29,21 +39,68 @@ class Actor extends Component {
       // .then(res => console.log(res.data))
       .then(res => this.setState({ details: res.data }))
       .catch(err => console.log(err));
+
+    this.setState({ credits: this.state.movieCredits });
   };
 
   goBack = () => {
     this.props.history.goBack();
   };
 
+  onMovies = () => {
+    this.setState({ credits: this.state.movieCredits });
+  };
+
+  onTv = () => {
+    this.setState({ credits: this.state.tvCredits });
+  };
+
+  onWhich = () => {
+    const { movieCredits, tvCredits } = this.state;
+
+    this.setState(
+      movieCredits < tvCredits
+        ? { credits: tvCredits }
+        : { credits: movieCredits }
+    );
+  };
+
+  // onSort = () => {
+  //   const { movieCredits } = this.state;
+
+  //   movieCredits.
+  // }
+
   render() {
-    const { details, credits } = this.state;
-    console.log(details, credits);
+    const { details, movieCredits, tvCredits, credits } = this.state;
+
+    const movies = movieCredits !== null ? movieCredits.length : 2;
+    const tv = tvCredits !== null ? tvCredits.length : 2;
+
+    console.log(credits, movies, tv);
+
+    // console.log(tvCredits);
+
     return (
       <>
-        {details !== null && credits !== null ? (
+        {details !== null &&
+        movieCredits !== null &&
+        tvCredits !== null &&
+        credits !== null ? (
           <div className="Actor">
             <Header details={details} back={this.goBack} />
-            <hr />
+            <Result
+              results={credits}
+              type={movieCredits > tvCredits ? "movie" : "tv"}
+              movieNumber={movieCredits.length}
+              tvNumber={tvCredits.length}
+            />
+            {/* <Pagination
+            results={totalPages}
+            onForward={onForward}
+            onBackward={onBackward}
+            page={page}
+          /> */}
           </div>
         ) : (
           <h1>Searching</h1>
