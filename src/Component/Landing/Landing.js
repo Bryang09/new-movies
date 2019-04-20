@@ -3,6 +3,9 @@ import React, { Component } from "react";
 import "./Landing.scss";
 
 import { Link } from "react-router-dom";
+import First from "./Options/first";
+import Second from "./Options/second";
+import Third from "./Options/third";
 
 class Landing extends Component {
   state = {
@@ -37,65 +40,27 @@ class Landing extends Component {
       <div className="Landing">
         <h1>What are you searching for?</h1>
 
-        <div
-          className={
-            optionNumber === 1
-              ? "options firstOptions activeOption"
-              : "options firstOptions notActive"
-          }
-        >
-          <h3 onClick={this.onMovie}>Movies</h3>
-          <h3 onClick={this.onTV}>TV Shows</h3>
-        </div>
+        <First
+          optionNumber={optionNumber}
+          movie={this.onMovie}
+          tv={this.onTV}
+        />
 
-        <div
-          className={
-            optionNumber === 2
-              ? "options  secondOptions activeOption"
-              : "options secondOptions notActive"
-          }
-        >
-          <Link to={`/${categorie}/discover/1/popular`}>
-            <h3>Discover</h3>
-          </Link>
-          {categorie === "tv" ? (
-            <h3 onClick={this.onTV}>Search</h3>
-          ) : (
-            <h3 onClick={this.onMovie}>Search</h3>
-          )}
-        </div>
+        <Second
+          optionNumber={optionNumber}
+          movie={this.onMovie}
+          tv={this.onTV}
+          categorie={categorie}
+        />
 
-        <div
-          className={
-            optionNumber === 3
-              ? "options  secondOptions activeOption"
-              : "options secondOptions notActive"
-          }
-        >
-          <form onChange={this.onInput}>
-            <input
-              type="text"
-              placeholder={
-                categorie === "tv" ? "Type TV Show Name" : "Type Movie Name"
-              }
-              onChange={this.onInput}
-            />
-
-            <Link
-              to={
-                categorie === "movies"
-                  ? `/search/movie/1/${search}`
-                  : `/search/${categorie}/1/${search}`
-              }
-            >
-              {search.length > 0 ? (
-                <button type="submit" style={{ display: "none" }} />
-              ) : (
-                <button type={"submit"} disabled style={{ display: "none" }} />
-              )}
-            </Link>
-          </form>
-        </div>
+        <Third
+          optionNumber={optionNumber}
+          movie={this.onMovie}
+          tv={this.onTV}
+          categorie={categorie}
+          input={this.onInput}
+          search={search}
+        />
       </div>
     );
   }
