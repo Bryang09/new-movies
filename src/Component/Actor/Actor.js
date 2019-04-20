@@ -25,7 +25,6 @@ class Actor extends Component {
         `${BASE_REQUEST}/person/${id}/movie_credits?api_key=${API_KEY}&language=en-US&page=${page}`
       )
       .then(res => this.setState({ movieCredits: res.data.cast }, this.onWhich))
-      // .then(res => console.log(res))
       .catch(err => console.log(err));
     axios
       .get(
@@ -37,7 +36,6 @@ class Actor extends Component {
       .get(
         `${BASE_REQUEST}/person/${id}?api_key=${API_KEY}&language=en-US&page=${page}`
       )
-      // .then(res => console.log(res.data))
       .then(res => this.setState({ details: res.data }))
       .catch(err => console.log(err));
   };
@@ -66,13 +64,6 @@ class Actor extends Component {
 
   render() {
     const { details, movieCredits, tvCredits, credits, categorie } = this.state;
-
-    const movies = movieCredits !== null ? movieCredits.length : 2;
-    const tv = tvCredits !== null ? tvCredits.length : 2;
-
-    console.log(credits, movies, tv);
-
-    // console.log(tvCredits);
 
     return (
       <>

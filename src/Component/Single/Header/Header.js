@@ -7,7 +7,6 @@ import "./Header.scss";
 const Header = props => {
   const { result, type } = props;
 
-  console.log(result);
   return (
     <div className="firstDivider">
       <div className="text">

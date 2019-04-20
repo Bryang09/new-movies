@@ -17,8 +17,6 @@ const Text = props => {
     placeholder
   } = props;
 
-  console.log(props.search.length > 0);
-  console.log(props.search.length);
 
   return (
     <div

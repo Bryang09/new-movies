@@ -15,7 +15,6 @@ const Display = props => {
     onBackward,
     page
   } = props;
-  console.log(props.genres);
 
   return (
     <div className="Discover">

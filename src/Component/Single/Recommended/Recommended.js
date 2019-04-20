@@ -18,13 +18,10 @@ class Recommended extends Component {
   };
 
   render() {
-    console.log(this.props);
-
     const { results } = this.props.recommended;
     const { type } = this.props;
     const { min, max } = this.state;
 
-    console.log(results);
     const mapRecommended = results
       .filter((res, i) => i >= min && i < max)
       .map(res => {

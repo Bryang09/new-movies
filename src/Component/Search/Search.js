@@ -26,7 +26,6 @@ class Search extends Component {
           totalPages: res.data.total_pages
         })
       )
-      // .then(res => console.log(res))
       .catch(err => console.log(err));
   };
 
@@ -51,7 +50,6 @@ class Search extends Component {
 
     const { type } = this.props.match.params;
 
-    console.log(this.state.results);
     return (
       <>
         {results !== null ? (

@@ -19,7 +19,6 @@ import Single from "./Component/Single/Single";
 
 import Search from "./Component/Search/Search";
 import Actor from "./Component/Actor/Actor";
-import Credit from "./Component/Credit/Credit";
 
 const Routes = () => {
   return (
@@ -133,15 +132,6 @@ const Routes = () => {
           path="/actor/:page/:id"
           render={
             props => <Actor key={props.match.params.page} {...props} />
-            // )
-          }
-        />
-
-        <Route
-          exact
-          path="/credit/actor/:creditId"
-          render={
-            props => <Credit key={props.match.params.id} {...props} />
             // )
           }
         />

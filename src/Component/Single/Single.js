@@ -37,8 +37,6 @@ class Single extends Component {
     const { type } = this.props.match.params;
     const { result, cast, recommended } = this.state;
 
-    console.log(result);
-    console.log(cast);
     return (
       <div className="Single">
         {type === "movie" &&

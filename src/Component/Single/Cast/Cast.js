@@ -47,10 +47,6 @@ class Cast extends Component {
         );
       });
 
-    console.log(cast.length);
-    console.log(cast);
-    console.log(min, max);
-    console.log(mapCast);
     return (
       <div className="Cast">
         <h4>The Cast</h4>

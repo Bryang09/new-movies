@@ -3,15 +3,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Result = props => {
-  const { results, type, movieNumber, tvNumber, tv, movies, categorie } = props;
-
-  console.log(props);
+  const { results, movieNumber, tvNumber, tv, movies, categorie } = props;
 
   const result = results
     .sort((a, b) => b.popularity - a.popularity)
     .map((res, i) => {
       return (
-        <Link to={`/credit/actor/${res.credit_id}`} key={i}>
+        <Link to={`/${categorie}/${res.id}`} key={i}>
           <div
             className="result"
             style={
@@ -26,15 +24,14 @@ const Result = props => {
           >
             <div className="text">
               <h3>{categorie === "tv" ? res.name : res.title}</h3>
-              <h4>{res.overview.substr(0, 100)}...</h4>
+              <h4>{res.character}</h4>
+              <h5>{res.overview.substr(0, 100)}...</h5>
             </div>
           </div>
         </Link>
       );
     });
 
-  console.log(type);
-  console.log(results);
   return (
     <div className="results" style={{ width: "100%", flexDirection: "column" }}>
       {" "}

@@ -29,8 +29,6 @@ const Result = props => {
     );
   });
 
-  console.log(type);
-  console.log(results);
   return result;
 };
 
