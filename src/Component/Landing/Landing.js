@@ -2,94 +2,71 @@ import React, { Component } from "react";
 
 import "./Landing.scss";
 
-import Text from "./text/Text";
+import { Link } from "react-router-dom";
 
 class Landing extends Component {
   state = {
-    movieFull: false,
-    tvFull: false,
-    movieSearchButton: false,
-    tvSearchButton: false,
-    movieSearch: "",
-    tvSearch: ""
-  };
-  onMovieHover = () => {
-    this.setState({ movieFull: true });
-  };
-  onTvHover = () => {
-    this.setState({ tvFull: true });
-  };
-  onMovieLeave = () => {
-    this.setState({ movieFull: false, movieSearchButton: false });
-  };
-  onTvLeave = () => {
-    this.setState({ tvFull: false, tvSearchButton: false });
+    optionNumber: 1,
+    categorie: null
   };
 
-  onMovieSearchClick = () => {
-    this.setState({ movieSearchButton: true });
+  onMovie = () => {
+    this.setState({ categorie: "movies", optionNumber: 2 });
   };
 
-  onTvSearchClick = () => {
-    this.setState({ tvSearchButton: true });
-  };
-
-  onMovieSearch = e => {
-    this.setState({ movieSearch: e.target.value });
-  };
-
-  onTvSearch = e => {
-    this.setState({ tvSearch: e.target.value });
+  onTV = () => {
+    this.setState({
+      categorie: "tv",
+      optionNumber: this.state.optionNumber + 1
+    });
   };
 
   render() {
-    const {
-      movieFull,
-      tvFull,
-      movieSearchButton,
-      tvSearchButton,
-      movieSearch,
-      tvSearch
-    } = this.state;
+    const { optionNumber, categorie } = this.state;
 
+    console.log(this.state);
     return (
       <div className="Landing">
-        <Text
-          Full={movieFull}
-          search={movieSearch}
-          ifSearch={movieSearchButton}
-          onHover={this.onMovieHover}
-          onLeave={this.onMovieLeave}
-          onSearchClick={this.onMovieSearchClick}
-          onSearch={this.onMovieSearch}
-          title="Search For Movies"
-          categorie="movies"
-          link="movies/discover"
-          placeholder="Type Movie Name"
-        />
-        <Text
-          Full={tvFull}
-          search={tvSearch}
-          ifSearch={tvSearchButton}
-          onHover={this.onTvHover}
-          onLeave={this.onTvLeave}
-          onSearchClick={this.onTvSearchClick}
-          onSearch={this.onTvSearch}
-          title="Search For TV Shows"
-          categorie="tv"
-          link="tv/discover"
-          placeholder="Type TV Show Name"
-        />
+        <h1>What are you searching for?</h1>
 
-        {/* <div
-          className={tvFull ? "option tv full " : "option tv"}
-          onMouseEnter={this.onTvHover}
-          onMouseLeave={this.onTvLeave}
+        <div
+          className={
+            optionNumber === 1
+              ? "options firstOptions activeOption"
+              : "options firstOptions notActive"
+          }
         >
-          <div className="optionText">
-            <h2>Search For TV Shows</h2>
-          </div>
-        </div>*/}
+          <h3 onClick={this.onMovie}>Movies</h3>
+          <h3 onClick={this.onTV}>TV Shows</h3>
+        </div>
+
+        <div
+          className={
+            optionNumber === 2
+              ? "options  secondOptions activeOption"
+              : "options secondOptions notActive"
+          }
+        >
+          <Link to={`/${categorie}/discover/1/popular`}>
+            <h3>Discover</h3>
+          </Link>
+          <h3 onClick={this.onTV}>Search</h3>
+        </div>
+
+        <div
+          className={
+            optionNumber === 3
+              ? "options  secondOptions activeOption"
+              : "options secondOptions notActive"
+          }
+        >
+          <input
+            type="text"
+            placeholder={
+              categorie === "tv" ? "Type TV Show Name" : "Type Movie Name"
+            }
+          />
+        </div>
       </div>
     );
   }

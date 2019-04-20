@@ -1,0 +1,233 @@
+$discover: #8f55ea;
+$search: #4a45ff;
+
+.Landing {
+  height: 100vh;
+  display: flex;
+
+  .option {
+    width: 50vw;
+    transition: 1s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+
+    h2 {
+      font-weight: 400;
+      text-align: center;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 30vw;
+      animation: discover 1s ease;
+
+      .option {
+        width: 48%;
+        a {
+          text-align: center;
+
+          h5 {
+            color: #fff;
+            height: 100%;
+            text-align: center;
+            margin: 0;
+          }
+        }
+      }
+
+      .discover {
+        border: 1px solid $discover;
+        background: $discover;
+        cursor: pointer;
+
+        &:hover {
+          background: darken($discover, 10%);
+          border: 1px solid darken($discover, 10%);
+        }
+      }
+
+      .search {
+        background: $search;
+        cursor: pointer;
+        color: #fff;
+
+        &:hover {
+          background: darken($search, 5%);
+          border: 1px solid darken($search, 5%);
+        }
+      }
+
+      .searchActive {
+        // animation: search 1s ease;
+        width: 100%;
+      }
+      .noDiscover {
+        animation: discover 0s ease;
+        opacity: 0;
+        width: 0;
+      }
+    }
+  }
+
+  .movies {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+      url(./img/avengers.jpg) no-repeat center center / cover;
+    transition: 1s ease;
+
+    &:hover {
+      background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
+        url(./img/avengers.jpg) no-repeat center center / cover;
+    }
+  }
+  .tv {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+      url(./img/got2.jpg) no-repeat center center / cover;
+
+    &:hover {
+      background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
+        url(./img/got2.jpg) no-repeat center center / cover;
+    }
+  }
+
+  // .full {
+  //   // width: 100vw;
+  //   // transition: 1s ease;
+  // }
+}
+
+@keyframes discover {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes search {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-13vw);
+  }
+}
+
+.searchBar {
+  animation: discover 1s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  form {
+    margin-top: 5vh;
+
+    input {
+      background: #333;
+      border: none;
+      padding: 1vh 2vw;
+      text-align: center;
+      transition: 1s ease;
+
+      &:focus {
+        outline: none;
+        background: #fff;
+        color: #333;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1192px) {
+  .Landing {
+    .option {
+      .buttons {
+        h5 {
+          margin: 0;
+          padding: 1.2vh 3vw;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .Landing {
+    .option {
+      width: 100%;
+      margin: 0.5vh auto 1vh;
+
+      .buttons {
+        flex-direction: column;
+        a {
+          // margin: 2vh auto;
+
+          h5 {
+            margin: 1vh auto;
+          }
+        }
+        h5 {
+          margin: 0;
+          padding: 2vh 4vw;
+        }
+
+        .option {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .Landing {
+    flex-direction: column;
+    .option {
+      height: 50vh;
+      margin: 0;
+
+      .optionText {
+        width: 80vw;
+      }
+      .buttons {
+        flex-direction: row;
+        width: 100%;
+        h5 {
+          margin: 0;
+          padding: 1.2vh 3vw;
+        }
+
+        .option {
+          width: 48%;
+          height: 20%;
+          margin: 0 1vw;
+        }
+
+        .searchActive {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 600px) {
+}
+@media screen and (max-width: 500px) {
+}
+
+@media screen and (max-width: 400px) {
+}
+
+@media screen and (max-width: 1025px) and (min-aspect-ratio: 4/3) {
+}
+
+@media screen and (max-width: 1023px) and (min-aspect-ratio: 4/3) {
+}
+
+@media screen and (max-width: 700px) and (min-aspect-ratio: 4/3) {
+}
