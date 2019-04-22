@@ -33,7 +33,33 @@
     transition: 0.4s ease;
 
     &:hover {
-      color: red;
+      color: #308ee0;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .Pagination {
+    margin: 3vh auto 18vh;
+
+    .paginationContainer {
+      width: 20vw;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+}
+.Pagination {
+  margin: 3vh auto 10vh;
+}
+
+@media screen and (max-width: 1023px) and (min-aspect-ratio: 4/3) {
+  .Pagination {
+    margin: 3vh auto 20vh;
+
+    .paginationContainer {
+      width: 20vw;
     }
   }
 }
