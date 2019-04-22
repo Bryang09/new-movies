@@ -7,23 +7,48 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class Cast extends Component {
   state = {
-    max: 4,
+    // max: 4,
+    max: window.innerWidth < 768 ? 1 : window.innerWidth < 995 ? 2 : 3,
     min: 0
   };
 
   onArrowRight = () => {
-    this.setState({ max: this.state.max + 5, min: this.state.min + 5 });
+    const { max, min } = this.state;
+    this.setState(
+      window.innerWidth < 768
+        ? // RETURN INDEX 0 - 1
+          // RETURN INDEX 2-3
+          // RETURN INDEX 4-5
+
+          { max: this.state.max + 2, min: this.state.min + 2 }
+        : window.innerWidth < 995
+        ? { max: this.state.max + 3, min: this.state.min + 3 }
+        : { max: this.state.max + 4, min: this.state.min + 4 }
+    );
   };
   onArrowLeft = () => {
-    this.setState({ max: this.state.max - 5, min: this.state.min - 5 });
+    const { max, min } = this.state;
+
+    this.setState(
+      window.innerWidth < 768
+        ? { max: this.state.max - 2, min: this.state.min - 2 }
+        : window.innerWidth < 995
+        ? { max: this.state.max - 3, min: this.state.min - 3 }
+        : { max: this.state.max - 4, min: this.state.min - 4 }
+    );
   };
   render() {
     const { cast } = this.props.cast;
     const { min, max } = this.state;
+    console.log(max);
+
+    console.log(window.innerWidth);
+    console.log(window.innerWidth < 768);
 
     const mapCast = cast
-      .filter((res, i) => i >= min && i < max)
+      .filter((res, i) => i >= min && i <= max)
       .map((res, i) => {
+        // RETURN INDEX 0 - 2
         return (
           <div className="castMember" key={i}>
             <Link to={`/actor/1/${res.id}`}>
@@ -47,6 +72,9 @@ class Cast extends Component {
         );
       });
 
+    console.log(cast);
+
+    console.log(mapCast);
     return (
       <div className="Cast">
         <h4>The Cast</h4>

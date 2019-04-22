@@ -48,7 +48,7 @@ class Recommended extends Component {
       });
 
     return (
-      <div className="Cast">
+      <div className="Cast Recommended">
         <h4>Recommended</h4>
 
         <div className="castContainer">

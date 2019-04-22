@@ -8,10 +8,12 @@ import "./TaskBar.scss";
 
 class TaskBar extends Component {
   render() {
-    const { type, categorie } = this.props;
+    const { type, categorie, page } = this.props;
+
+    console.log(this.props);
 
     return (
-      <div className="Task">
+      <div className={page === "Single" ? "Task SinglePageTask" : "Task"}>
         <Link to="/">
           <div className="link homeLink">
             <div className="logo" />

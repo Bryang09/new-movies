@@ -44,7 +44,10 @@ class Single extends Component {
         cast !== null &&
         recommended !== null ? (
           <div className="SingleContainer">
-            <TaskBar categorie={type === "movie" ? "movies" : "tv"} />
+            <TaskBar
+              page="Single"
+              categorie={type === "movie" ? "movies" : "tv"}
+            />
             <Header result={result} />
             <Cast cast={cast} />
             <Recommended recommended={recommended} type="movie" />
@@ -54,7 +57,10 @@ class Single extends Component {
           cast !== null &&
           recommended !== null ? (
           <div className="SingleContainer">
-            <TaskBar categorie={type === "movie" ? "movies" : "tv"} />
+            <TaskBar
+              categorie={type === "movie" ? "movies" : "tv"}
+              page="Single"
+            />
             <Header result={result} type="tv" />
             <Cast cast={cast} />
             <Recommended recommended={recommended} type="tv" />
