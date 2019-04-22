@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Third = props => {
-  const { optionNumber, movie, tv, categorie, input, search } = props;
+  const { optionNumber, categorie, input, search } = props;
   return (
     <div
       className={

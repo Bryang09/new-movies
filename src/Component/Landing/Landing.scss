@@ -27,8 +27,9 @@ $second: #50b394;
       margin: 1vh 1vw;
       cursor: pointer;
       animation: option 1s ease;
-      padding: 1vh 2vw;
+      padding: 1vh 5vw;
       transition: 1s ease;
+      text-align: center;
 
       &:hover {
         background: darken($first, 10%);
@@ -117,4 +118,70 @@ $second: #50b394;
     transform: translateY(0vh);
     opacity: 0.6;
   }
+}
+
+@media screen and (max-width: 1192px) {
+}
+
+@media screen and (max-width: 992px) {
+}
+@media screen and (max-width: 768px) {
+  .Landing {
+    .options {
+      flex-direction: column;
+
+      h3 {
+        padding: 1vh 7vw;
+      }
+    }
+  }
+}
+@media screen and (max-width: 600px) {
+  .Landing {
+    .options {
+      flex-direction: column;
+
+      h3 {
+        padding: 1vh 15vw;
+      }
+
+      input[type="text"] {
+        margin-top: 2vh;
+        padding: 1vh 15vw;
+      }
+    }
+    h1 {
+      font-size: 28px;
+      width: 95%;
+      margin: 2vh auto;
+      text-align: center;
+    }
+  }
+}
+@media screen and (max-width: 500px) {
+  .Landing {
+    h1 {
+      font-size: 22px;
+    }
+  }
+}
+
+@media screen and (max-width: 1025px) and (min-aspect-ratio: 4/3) {
+  .Landing {
+    .options {
+      input[type="text"] {
+        margin-top: 2vh;
+        padding: 1vh 10vw;
+      }
+    }
+    h1 {
+      font-size: 35px;
+    }
+  }
+}
+
+@media screen and (max-width: 1023px) and (min-aspect-ratio: 4/3) {
+}
+
+@media screen and (max-width: 700px) and (min-aspect-ratio: 4/3) {
 }

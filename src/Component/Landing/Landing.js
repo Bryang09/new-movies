@@ -2,7 +2,6 @@ import React, { Component } from "react";
 
 import "./Landing.scss";
 
-import { Link } from "react-router-dom";
 import First from "./Options/first";
 import Second from "./Options/second";
 import Third from "./Options/third";
