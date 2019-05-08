@@ -8,20 +8,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 class Cast extends Component {
   state = {
     // max: 4,
-    max: window.innerWidth < 768 ? 1 : window.innerWidth < 995 ? 2 : 3,
+    max: window.innerWidth < 995 ? 2 : 3,
     min: 0
   };
 
   onArrowRight = () => {
     const { max, min } = this.state;
     this.setState(
-      window.innerWidth < 768
-        ? // RETURN INDEX 0 - 1
-          // RETURN INDEX 2-3
-          // RETURN INDEX 4-5
-
-          { max: this.state.max + 2, min: this.state.min + 2 }
-        : window.innerWidth < 995
+      window.innerWidth < 995
         ? { max: this.state.max + 3, min: this.state.min + 3 }
         : { max: this.state.max + 4, min: this.state.min + 4 }
     );
@@ -30,9 +24,7 @@ class Cast extends Component {
     const { max, min } = this.state;
 
     this.setState(
-      window.innerWidth < 768
-        ? { max: this.state.max - 2, min: this.state.min - 2 }
-        : window.innerWidth < 995
+      window.innerWidth < 995
         ? { max: this.state.max - 3, min: this.state.min - 3 }
         : { max: this.state.max - 4, min: this.state.min - 4 }
     );

@@ -31,7 +31,12 @@ const Header = props => {
 
         <div className="Summary">
           <h5>Summary</h5>
-          <h4>{result.overview}</h4>
+          <h4>
+            {/* {window.innerWidth < 769
+              ? result.overview.substr(0, 300)
+              : result.overview} */}
+            {result.overview}
+          </h4>
         </div>
       </div>
       <div className="imgContainer">

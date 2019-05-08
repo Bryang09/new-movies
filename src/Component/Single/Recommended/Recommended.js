@@ -6,15 +6,25 @@ import { Link } from "react-router-dom";
 
 class Recommended extends Component {
   state = {
-    max: 4,
+    max: window.innerWidth < 995 ? 3 : 4,
     min: 0
   };
 
   onArrowRight = () => {
-    this.setState({ max: this.state.max + 5, min: this.state.min + 5 });
+    // this.setState({ max: this.state.max + 5, min: this.state.min + 5 });
+    this.setState(
+      window.innerWidth < 995
+        ? { max: this.state.max + 3, min: this.state.min + 3 }
+        : { max: this.state.max + 4, min: this.state.min + 4 }
+    );
   };
   onArrowLeft = () => {
-    this.setState({ max: this.state.max - 5, min: this.state.min - 5 });
+    // this.setState({ max: this.state.max - 5, min: this.state.min - 5 });
+    this.setState(
+      window.innerWidth < 995
+        ? { max: this.state.max - 3, min: this.state.min - 3 }
+        : { max: this.state.max - 4, min: this.state.min - 4 }
+    );
   };
 
   render() {

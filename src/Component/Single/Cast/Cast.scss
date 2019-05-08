@@ -33,6 +33,11 @@
     }
   }
 
+  .rightArrow {
+    display: flex;
+    justify-content: flex-end;
+  }
+
   .castMember {
     width: 25%;
     margin: 0 2.5%;
@@ -107,6 +112,23 @@
 }
 
 @media screen and (max-width: 768px) {
+  .Cast {
+    width: 100%;
+    .castContainer {
+      .castMember {
+        margin: 0 0.6%;
+        text-align: center;
+
+        .img {
+          box-shadow: none;
+          height: 250px;
+          &:hover {
+            transform: scale(1.02);
+          }
+        }
+      }
+    }
+  }
   .Recommended {
     margin-bottom: 10vh;
   }

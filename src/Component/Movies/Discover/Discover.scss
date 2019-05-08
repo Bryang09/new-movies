@@ -98,6 +98,25 @@
     }
   }
 }
+@media screen and (max-width: 992px) {
+  .Discover {
+    .results {
+      .resultContainer {
+        width: 95%;
+        a {
+          width: 47%;
+          height: 48vh;
+        }
+      }
+
+      .result {
+        &:hover {
+          transform: scale(1.02);
+        }
+      }
+    }
+  }
+}
 
 @media screen and (max-width: 768px) {
   .Discover {

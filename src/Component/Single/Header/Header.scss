@@ -119,6 +119,31 @@
   }
 }
 @media screen and (max-width: 768px) {
+  .firstDivider {
+    margin-top: 0;
+    height: 100%;
+    .imgContainer {
+      .imgSquare {
+        width: 100vw;
+        height: 70vh;
+        background: transparent;
+
+        .img {
+          border-radius: 0;
+          background-position: center;
+        }
+      }
+    }
+
+    .titleAndInfo {
+      .title {
+        h1 {
+          font-size: 27px;
+          margin-top: 0;
+        }
+      }
+    }
+  }
 }
 @media screen and (max-width: 600px) {
 }
