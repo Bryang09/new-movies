@@ -59,7 +59,7 @@ class Cast extends Component {
             </Link>
 
             <h5>{res.name}</h5>
-            <h6>"{`${res.character}`}"</h6>
+            <h6>{`${res.character}`}</h6>
           </div>
         );
       });

@@ -1,0 +1,21 @@
+.square {
+  background: linear-gradient(#5b90ff, #fff);
+}
+
+@media screen and (max-width: 1192px) {
+  .divider {
+    height: 100%;
+
+    h4 {
+      color: #666fef;
+
+      &:hover {
+        color: darken(#666fef, 5%);
+      }
+    }
+  }
+
+  .square {
+    background: transparent;
+  }
+}

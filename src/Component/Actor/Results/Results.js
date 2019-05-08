@@ -24,7 +24,7 @@ const Result = props => {
           >
             <div className="text">
               <h3>{categorie === "tv" ? res.name : res.title}</h3>
-              <h4>{res.character}</h4>
+              <h4 style={{ textAlign: "center" }}>{res.character}</h4>
               <h5>{res.overview.substr(0, 100)}...</h5>
             </div>
           </div>
