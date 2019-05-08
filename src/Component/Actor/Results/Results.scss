@@ -1,0 +1,37 @@
+.results {
+  .actorResults {
+    h4 {
+      margin: 0;
+    }
+    h5 {
+      width: 90%;
+    }
+  }
+}
+
+@media screen and (max-width: 1192px) {
+  .results .actorResults {
+    width: 90%;
+  }
+}
+@media screen and (max-width: 992px) {
+  .results .actorResults {
+    a {
+      height: 35vh;
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .results .actorResults {
+    a {
+      width: 30%;
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .results .actorResults {
+    a {
+      width: 45%;
+    }
+  }
+}

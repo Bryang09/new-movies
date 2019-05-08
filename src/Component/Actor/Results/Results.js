@@ -2,6 +2,8 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 
+import "./Results.scss";
+
 const Result = props => {
   const { results, movieNumber, tvNumber, tv, movies, categorie } = props;
 
@@ -56,7 +58,7 @@ const Result = props => {
           TV ({tvNumber})
         </h5>
       </div>
-      <div className="resultContainer">{result}</div>
+      <div className="resultContainer actorResults">{result}</div>
     </div>
   );
 };

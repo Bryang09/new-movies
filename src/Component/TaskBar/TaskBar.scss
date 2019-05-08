@@ -202,35 +202,35 @@
 @media screen and (max-width: 1025px) and (min-aspect-ratio: 4/3) {
 }
 
-// @media screen and (max-width: 1023px) and (min-aspect-ratio: 4/3) {
-//   .Task {
-//     width: 100vw;
-//     height: 18vh;
-//     bottom: 0;
-//     left: 0;
-//     flex-direction: row;
+@media screen and (max-width: 1023px) and (min-aspect-ratio: 4/3) {
+  .Task {
+    width: 100vw;
+    height: 18vh;
+    bottom: 0;
+    left: 0;
+    flex-direction: row;
 
-//     a {
-//       background: #222222;
-//       height: 100%;
+    a {
+      background: #222222;
+      height: 100%;
 
-//       .link {
-//         h4 {
-//           font-size: 10px;
-//         }
+      .link {
+        h4 {
+          font-size: 10px;
+        }
 
-//         .logo {
-//           height: 26px;
-//           width: 26px;
-//         }
-//       }
-//     }
-//   }
+        .logo {
+          height: 26px;
+          width: 26px;
+        }
+      }
+    }
+  }
 
-//   .fa-2x {
-//     font-size: 1.1em;
-//   }
-// }
+  .fa-2x {
+    font-size: 1.1em;
+  }
+}
 
 // @media screen and (max-width: 700px) and (min-aspect-ratio: 4/3) {
 // }
