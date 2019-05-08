@@ -133,3 +133,33 @@
     margin-bottom: 10vh;
   }
 }
+
+@media screen and (max-width: 600px) {
+  .Cast {
+    width: 100%;
+    .castContainer {
+      width: 94%;
+
+      .castMember {
+        margin: 0 1%;
+        text-align: start;
+
+        .img {
+          box-shadow: none;
+          height: 165px;
+          &:hover {
+            transform: scale(1.02);
+          }
+        }
+      }
+    }
+
+    h4 {
+      width: 85%;
+    }
+  }
+  .Recommended {
+    margin-bottom: 6vh;
+    margin-top: 0;
+  }
+}

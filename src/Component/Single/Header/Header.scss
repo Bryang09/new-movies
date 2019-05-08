@@ -146,6 +146,37 @@
   }
 }
 @media screen and (max-width: 600px) {
+  .firstDivider {
+    .imgContainer {
+      .imgSquare {
+        width: 100vw;
+        height: 70vh;
+        background: transparent;
+
+        .img {
+          border-radius: 0;
+          background-position: center;
+        }
+      }
+    }
+
+    .titleAndInfo {
+      width: 86%;
+
+      .title {
+        h1 {
+          font-size: 27px;
+          margin-top: 0;
+        }
+      }
+    }
+
+    .text {
+      .Summary {
+        width: 85%;
+      }
+    }
+  }
 }
 @media screen and (max-width: 500px) {
 }
