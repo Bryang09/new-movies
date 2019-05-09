@@ -13,7 +13,6 @@ class Cast extends Component {
   };
 
   onArrowRight = () => {
-    const { max, min } = this.state;
     this.setState(
       window.innerWidth < 995
         ? { max: this.state.max + 3, min: this.state.min + 3 }
@@ -21,8 +20,6 @@ class Cast extends Component {
     );
   };
   onArrowLeft = () => {
-    const { max, min } = this.state;
-
     this.setState(
       window.innerWidth < 995
         ? { max: this.state.max - 3, min: this.state.min - 3 }
